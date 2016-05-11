@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+        <title>BLOG</title>
+        <meta charset="utf-8" />
+        <link href="css/style.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+		<div id="pasek_gorny">
+		<?php if(($_SESSION['logged']) == false) { ?>
+			<a href="index.php">Strona Główna</a>
+            <a href="?task=categories&amp;action=index">Lista kategorii</a>
+            <a href="?task=articles&amp;action=index">Lista artykułów</a>
+            <a href="?task=galeria&amp;action=index">Galeria</a>
+			<a href="?task=rejestracja&amp;action=add">Rejestracja</a>
+			<a href="?task=logowanie&amp;action=add">Logowanie</a>
+		<?php } else if((($_SESSION['logged']) == true) && ((($_SESSION['id']) == 1))) { ?>
+			<a href="index.php">Strona Główna</a>
+            <a href="?task=categories&amp;action=add">Dodaj kategorię</a>
+            <a href="?task=categories&amp;action=index">Lista kategorii</a>
+            <a href="?task=articles&amp;action=add">Dodaj artykuł</a>
+            <a href="?task=articles&amp;action=index">Lista artykułów</a>
+			<a href="?task=galeria&amp;action=add">Dodaj zdjecie</a>
+            <a href="?task=galeria&amp;action=index">Galeria</a>
+            <a href="?task=rejestracja&amp;action=index">Wyswietl uzytkownikow</a>
+			<a href="?task=wyloguj">Wyloguj</a>		
+		<?php } else if((($_SESSION['logged']) == true)) { ?>
+			<a href="index.php">Strona Główna</a>
+            <a href="?task=categories&amp;action=index">Lista kategorii</a>
+            <a href="?task=articles&amp;action=index">Lista artykułów</a>
+            <a href="?task=galeria&amp;action=index">Galeria</a>
+			<?php if (($_SESSION['id']) == 1) { ?>
+            <a href="?task=rejestracja&amp;action=index">Wyswietl uzytkownikow</a>
+			<?php } ?>
+			<a href="?task=wyloguj">Wyloguj</a>
+		<?php } ?>
+		</div>
+        </ul>
