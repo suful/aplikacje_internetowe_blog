@@ -1,0 +1,14 @@
+body {
+}
+
+#pasek_gorny {
+	text-decoration: none;
+	font-size: 17px;
+	font-family: verdana;
+	width: 100%;
+	background-color: orange;
+}
+
+a {
+	text-decoration: none;
+}
