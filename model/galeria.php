@@ -29,15 +29,19 @@ class GaleriaModel extends Model{
 		//Sprawdzamy, czy submit zosta³ wciœniêty	
 		if(isset($_POST['dodaj_zdjecie'])){ 
 		//przeslane zmienne
+		$tmpName  = $_FILES['image']['tmp_name'];  
+		$fp = fopen($tmpName, 'rb'); // read binary
+		
 		$name_gal = $_POST['name_gal'];
-		$image = $_POST['image'];
+		
 		$description_gal = $_POST['description_gal'];
+		
 		$category = $_POST['category'];
 		
         $ins=$this->pdo->prepare('INSERT INTO galery (name_gal, image_gal, description_gal, category) VALUES (
             :name_gal, :image_gal, :description_gal, :category)');
         $ins->bindValue(':name_gal', $name_gal, PDO::PARAM_STR);
-        $ins->bindValue(':image_gal', $image, PDO::PARAM_LOB);
+        $ins->bindParam(':image_gal', $fp, PDO::PARAM_LOB);
         $ins->bindValue(':description_gal', $description_gal, PDO::PARAM_STR);
         $ins->bindValue(':category', $category, PDO::PARAM_INT);
         $ins->execute();
