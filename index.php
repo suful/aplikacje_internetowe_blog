@@ -3,14 +3,6 @@ session_start();
 	// Turn off all error reporting
 	error_reporting(0);
 	
-	if(($_SESSION['logged'])==true) {
-		echo "zalogowany? TAK !!!";
-	}
-	else {
-		echo "zalogowany? NIE !!!";
-	}
-
-	
 	if(isset($_GET['task'])){
 
 	if($_GET['task']=='categories')
