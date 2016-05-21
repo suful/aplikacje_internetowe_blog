@@ -25,7 +25,7 @@ class RejestracjaModel extends Model{
 
         return $data;
     }
-    public function insert($data) {
+    public function insert() {
 		//Sprawdzamy, czy submit został wciśnięty	
 		if(isset($_POST['rejestruj'])){ 
 		//Usuwamy białe znaki z przesłanych danych
@@ -62,10 +62,12 @@ class RejestracjaModel extends Model{
 		$dodaj->bindValue(':name', $name, PDO::PARAM_STR);
         $dodaj->bindValue(":email", $email, PDO::PARAM_STR);
         $dodaj->execute();
-        echo "Zarejestrowałeś się. Możesz się teraz <a href='?task=logowanie&amp;action=add'>zalogować</a>";
+		$_SESSION['rejestracja'] = true;
+        //echo "Zarejestrowałeś się. Możesz się teraz <a href='?task=logowanie&amp;action=add'>zalogować</a>";
 		}
 		else{
-        echo '<div style="color:red">'.$errors.'</div>';
+		$_SESSION['rejestracja'] = false;
+        //echo '<div style="color:red">'.$errors.'</div>';
 		}
 		
 		}

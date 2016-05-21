@@ -27,7 +27,6 @@ class LogowanieModel extends Model{
     }
     public function insert() {
 
-			$db = new PDO('mysql:host=localhost;dbname=blog', 'root', '', array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'")) or die();
 			if(isset($_POST['wyslano'])){ //Sprawdzamy, czy submit zostal wcisniety
 				
 				//Usuwamy bia³e znaki z przes³anych danych
@@ -38,7 +37,7 @@ class LogowanieModel extends Model{
 				//$password = sha1($password);
 				
 				//Sprawdzamy czy u¿ytkownik o podanych danych istnieje
-				$stmt = $db->prepare("SELECT * FROM users WHERE login=:login AND password=:password");
+				$stmt = $this->pdo->prepare("SELECT * FROM users WHERE login=:login AND password=:password");
 				$stmt->bindValue(":login", $login, PDO::PARAM_STR);
 				$stmt->bindValue(":password", $password, PDO::PARAM_STR);
 				$stmt->execute();

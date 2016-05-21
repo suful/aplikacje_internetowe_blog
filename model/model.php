@@ -1,9 +1,22 @@
-<?php
-
+﻿<?php
+/**
+ * This class includes methods for models.
+ *
+ * @abstract
+ */
 abstract class Model{
-
+    /**
+     * object of the class PDO
+     *
+     * @var object
+     */
     protected $pdo;
 
+    /**
+     * It sets connect with the database.
+     *
+     * @return void
+     */
     public function  __construct() {
         try {
             require 'config/sql.php';
@@ -14,7 +27,14 @@ abstract class Model{
             echo 'The connect can not create: ' . $e->getMessage();
         }
     }
-
+    /**
+     * It loads the object with the model.
+     *
+     * @param string $name name class with the class
+     * @param string $path pathway to the file with the class
+     *
+     * @return object
+     */
     public function loadModel($name, $path='model/') {
         $path=$path.$name.'.php';
         $name=$name.'Model';
@@ -35,7 +55,16 @@ abstract class Model{
         }
         return $ob;
     }
-
+    /**
+     * It selects data from the database.
+     *
+     * @param string $from Table
+     * @param <type> $select Records to select (default * (all))
+     * @param <type> $where Condition to query
+     * @param <type> $order Order ($record ASC/DESC)
+     * @param <type> $limit LIMIT
+     * @return array
+     */
     public function select($from, $select='*', $where=NULL, $order=NULL, $limit=NULL) {
         $query='SELECT '.$select.' FROM '.$from;
         if($where!=NULL)

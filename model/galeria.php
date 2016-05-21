@@ -1,9 +1,21 @@
-<?php
+﻿<?php
 include 'model/model.php';
 
 class GaleriaModel extends Model{
 
-    public function getAll() {
+    public function getLast() {
+        $query="SELECT * FROM galery ORDER BY id DESC LIMIT 1";
+        $select=$this->pdo->query($query);
+        foreach ($select as $row) {
+            $data[]=$row;
+        }
+        $select->closeCursor();
+		
+		if(!empty($data)) {
+			return $data;
+		}
+    }
+	public function getAll() {
         $query="SELECT * FROM galery";
         $select=$this->pdo->query($query);
         foreach ($select as $row) {
@@ -16,7 +28,7 @@ class GaleriaModel extends Model{
 		}
     }
     public function getOne($id) {
-        $query="SELECT * FROM galery where id=".$id;
+        $query="SELECT * FROM galery ORDER BY 'id' LIMIT 1 DESC";
         $select=$this->pdo->query($query);
         foreach ($select as $row) {
             $data[]=$row;

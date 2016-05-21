@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 include 'model/model.php';
 
 class ArticlesModel extends Model{
