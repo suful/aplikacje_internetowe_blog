@@ -1,14 +1,88 @@
 body {
+	font-family: verdana;
 }
 
 #pasek_gorny {
-	text-decoration: none;
-	font-size: 17px;
-	font-family: verdana;
 	width: 100%;
-	background-color: orange;
+	min-width: 1300px;
+	opacity: 0.9;
+	filter:alpha(opacity:90);
+	height: 40px;
+	background-color: black;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 9999;
+}
+
+#menu_przyciski {
+	text-align:center;
+	margin-top: 5px;
+}
+
+#top_pannel_pasek {
+	width: 100%;
+	min-width: 1250px;
+	height: 1px;
+	background-color: gold;
+	opacity: 0.3;
+	filter:alpha(opacity:30);
+	position: fixed;
+	top: 40px;
+	left: 0;
+	z-index: 9999;
+}
+
+#bottom_pannel {
+	width: 100%;
+	min-width: 1250px;
+	height: 30px;
+	background-color: black;
+	opacity: 0.9;
+	filter:alpha(opacity:90);
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	z-index: 5;
+}
+#bottom_pannel_pasek {
+	width: 100%;
+	min-width: 1250px;
+	height: 1px;
+	background-color: gold;
+	opacity: 0.3;
+	filter:alpha(opacity:30);
+	position: fixed;
+	bottom: 30px;
+	left: 0;
+	z-index: 9999;
+}
+
+#reklama {
+	height: 30px;
+}
+
+#lewa_strona {
+	text-align: center;
+	float: left;
+	width: 73%;
+}
+
+#prawa_strona {
+	margin-top: 25px;
+	float: left;
+	width: 25%;
+}
+
+.fb-page {
+	width: 340px;
 }
 
 a {
 	text-decoration: none;
+	color: gold;
+}
+
+.cbalink {
+display:none;
 }
