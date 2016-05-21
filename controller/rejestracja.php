@@ -7,7 +7,7 @@ class RejestracjaController extends Controller{
     public function index() {
         $view=$this->loadView('rejestracja');
         $view->index();
-    }
+	}
     public function one() {
         $view=$this->loadView('rejestracja');
         $view->one();
@@ -19,6 +19,7 @@ class RejestracjaController extends Controller{
     public function insert() {
         $model=$this->loadModel('rejestracja');
         $model->insert($_POST);
+		$this->redirect('?task=rejestracja&action=index');
     }
     public function delete() {
         $model=$this->loadModel('rejestracja');

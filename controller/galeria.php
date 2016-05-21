@@ -8,6 +8,10 @@ class GaleriaController extends Controller{
         $view=$this->loadView('galeria');
         $view->index();
     }
+	public function all() {
+        $view=$this->loadView('galeria');
+        $view->all();
+    }
     public function one() {
         $view=$this->loadView('galeria');
         $view->one();

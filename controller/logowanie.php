@@ -16,7 +16,6 @@ class LogowanieController extends Controller{
         $view=$this->loadView('logowanie');
         $view->add();
     }
-
     public function insert() {
         $model=$this->loadModel('logowanie');
         $model->insert($_POST);
