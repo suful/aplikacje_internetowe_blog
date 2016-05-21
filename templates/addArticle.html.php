@@ -1,9 +1,9 @@
-<?php include 'header.html.php'; 
+﻿<?php include 'header.html.php'; 
 
 	if((($_SESSION['logged']) == true) && ((($_SESSION['id']) == 1))) { ?>
-
+<div id="lewa_strona">
 		<h1>Dodaj artykuł</h1>
-		<form action="?task=articles&amp;action=insert" method="post">
+		<form style="text-align: center; display: inline;" action="?task=articles&amp;action=insert" method="post">
 			Tytuł: <input type="text" name="title" /><br />
 			Autor: <input type="text" name="author" /><br />
 			Data dodania: <input type="text" name="date_add" value="<?= date("Y:m:d"); ?>" /><br />
@@ -16,7 +16,7 @@
 			</select><br />
 			<input type="submit" value="Dodaj" />
 		</form>
-
+</div>
 <?php } 
 	else { 
 		header('Location:index.php');
