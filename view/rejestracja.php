@@ -18,5 +18,6 @@ class RejestracjaView extends View{
         $this->set('catsData', $cat->getAll());
         $this->render('addRejestracja');
     }
+	
 }
 ?>
